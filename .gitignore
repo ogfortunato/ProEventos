@@ -23,7 +23,6 @@ mono_crash.*
 [Rr]eleases/
 x64/
 x86/
-[Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
@@ -31,6 +30,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+Resources/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -61,12 +61,6 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-
-# Tye
-.tye/
-
-# ASP.NET Scaffolding
-ScaffoldingReadMe.txt
 
 # StyleCop
 StyleCopReport.xml
@@ -145,9 +139,7 @@ _TeamCity*
 !.axoCover/settings.json
 
 # Coverlet is a free, cross platform Code Coverage Tool
-coverage*.json
-coverage*.xml
-coverage*.info
+coverage*[.json, .xml, .info]
 
 # Visual Studio code coverage results
 *.coverage
@@ -361,9 +353,6 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# Fody - auto-generated XML schema
-FodyWeavers.xsd
-
 ##
 ## Visual studio for Mac
 ##
@@ -444,21 +433,25 @@ $RECYCLE.BIN/
 .idea/
 *.sln.iml
 
+
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Compiled output
+# compiled output
 /dist
 /tmp
 /out-tsc
+# Only exists if Bazel was run
 /bazel-out
 
-# Node
+# dependencies
 /node_modules
-npm-debug.log
-yarn-error.log
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
 
 # IDEs and editors
-.idea/
+/.idea
 .project
 .classpath
 .c9/
@@ -466,7 +459,7 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
+# IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -474,16 +467,17 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
+# misc
+/.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
+npm-debug.log
+yarn-error.log
 testem.log
 /typings
 
-# System files
+# System Files
 .DS_Store
 Thumbs.db
 
