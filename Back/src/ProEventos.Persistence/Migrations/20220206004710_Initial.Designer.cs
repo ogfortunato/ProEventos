@@ -3,12 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProEventos.Persistence;
+using ProEventos.Persistence.Contextos;
 
 namespace ProEventos.Persistence.Migrations
 {
-    [DbContext(typeof(ProEventosContext))]
+  [DbContext(typeof(ProEventosContext))]
     [Migration("20220206004710_Initial")]
     partial class Initial
     {
