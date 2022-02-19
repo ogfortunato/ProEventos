@@ -21,6 +21,7 @@
       <th class="text-left" scope="col">
         <button type="button" class="btn btn-outline-light btn-sm"
           (click)="alterarImagem()">
+          <i class="{{!exibirImagem ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
           {{!exibirImagem ? 'exibir' : 'ocultar'}}
         </button>
       </th>
@@ -42,15 +43,21 @@
           [style.width.px]="larguraImagem"
           [style.margin.px]="margemImagem">
       </td>
-      <th class="text-left" scope="row">{{evento.eventoId}}</th>
+      <th class="text-left" scope="row">{{evento.id}}</th>
       <td class="text-left">{{evento.tema}}</td>
       <td class="text-left">{{evento.local}}</td>
-      <td class="text-left">{{evento.dataEvento}}</td>
+      <td class="text-left">{{evento.dataEvento | DateTimeFormatPipe}}</td>
       <td class="text-left">{{evento.qtdPessoas}}</td>
-      <td class="text-left">{{evento.lote}}</td>
+      <td class="text-left">{{evento.lotes[0].nome | uppercase}}</td>
       <td>
-        <button type="button" class="btn btn-primary btn-sm me-2">Editar</button>
-        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+        <button type="button" class="btn btn-primary btn-sm me-2" tooltip="Editar" 
+                alt="Edit Icon">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button type="button" class="btn btn-danger btn-sm" tooltip="Excluir" 
+                alt="Trash Icon">
+          <i class="fa fa-trash"></i>
+        </button>
       </td>
     </tr>
   </tbody>
