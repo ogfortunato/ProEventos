@@ -47,15 +47,8 @@ export class EventosComponent implements OnInit {
     ) { }
 
   public ngOnInit(): void {
-    this.getEventos();
-
-    /** spinner starts on init */
     this.spinner.show();
-    
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 5000);
+    this.getEventos();
   }
 
   public alterarImagem(): void {
@@ -68,7 +61,11 @@ export class EventosComponent implements OnInit {
         this.eventos = eventos;
         this.eventosFiltrados = this.eventos;
       },
-      error: (error: any) => console.log(error)
+      error: (error: any) => {
+        this.spinner.hide();
+        this.toastr.error('Erro ao Carregar os Eventos', "Erro!");
+      },
+      complete: () => this.spinner.hide()
     });
   }      
       /*(eventos: Evento[]) => {
