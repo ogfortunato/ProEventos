@@ -21,7 +21,7 @@
     </div>
   </div>
   <!-- <h3>Filtro: {{filtroLista}}</h3> -->
-  <table class="table">
+  <table class="table table-hover">
     <thead class="table-dark">
       <tr>
         <th class="text-left d-none d-md-table-cell" scope="col">
@@ -41,7 +41,7 @@
     </tr>
   </thead>
   <tbody *ngIf="eventos && eventos.length">
-    <tr *ngFor="let evento of eventosFiltrados">
+    <tr *ngFor="let evento of eventosFiltrados" (click)="detalheEvento(evento.id)" style="cursor: pointer;">
       <td class="text-left d-none d-md-table-cell">
         <img [collapse]="!exibirImagem"
         [isAnimated]="true" 
