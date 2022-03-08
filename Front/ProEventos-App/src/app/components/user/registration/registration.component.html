@@ -64,10 +64,10 @@
 						Senha é obrigatório.
 					</div>
 					<div *ngIf="f.senha.errors?.minlength" class="invalid-feedback">
-						Senha deve ter no mínimo 6 caracteres.
+						Deve conter no mínimo 6 caracteres.
 					</div>
 					<div *ngIf="f.senha.errors?.maxlength" class="invalid-feedback">
-						Senha deve ter no máximo 16 caracteres.
+						Deve conter no máximo 16 caracteres.
 					</div>
 				</div>
 				<div class="mb-3 col-sm-6">
@@ -76,7 +76,10 @@
 						[ngClass]="{'is-invalid': f.confirmeSenha.errors && f.confirmeSenha.touched}"
 						formControlName="confirmeSenha" placeholder="Confirme a Senha" />
 					<div *ngIf="f.confirmeSenha.errors?.required && f.confirmeSenha.touched" class="invalid-feedback">
-						Senha é obrigatório.
+						Confirmar Senha é obrigatório.
+					</div>
+					<div *ngIf="f.confirmeSenha.errors?.mustMatch" class="invalid-feedback">
+						Repetir a senha é obrigatório.
 					</div>
 				</div>
 			</div>
