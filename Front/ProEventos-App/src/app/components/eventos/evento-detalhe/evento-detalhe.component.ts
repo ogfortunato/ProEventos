@@ -33,7 +33,7 @@ export class EventoDetalheComponent implements OnInit {
   }
 
   public resetForm(): void {
-    this.form.reset;
+    this.form.reset();
   }
 
 }
